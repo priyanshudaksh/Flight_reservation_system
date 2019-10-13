@@ -14,11 +14,12 @@ public class Flight {
 	private LocalTime time;
 	private double fare;
 	private String cateogory;
+	private int seats;
 	
 	
 	
 	public Flight(int fid, String fname, String source, String destination, LocalDate doj, LocalTime time, double fare,
-			String cateogory) {
+			String cateogory, int seats) {
 		super();
 		this.fid = fid;
 		this.fname = fname;
@@ -28,6 +29,7 @@ public class Flight {
 		this.time = time;
 		this.fare = fare;
 		this.cateogory = cateogory;
+		this.seats = seats;
 	}
 	public int getFid() {
 		return fid;
@@ -77,5 +79,13 @@ public class Flight {
 	public void setCateogory(String cateogory) {
 		this.cateogory = cateogory;
 	}
+	public int getSeats() {
+		return seats;
+	}
+	public void setSeats(int seats) {
+		this.seats = seats;
+	}
+	
+	
 		
 }

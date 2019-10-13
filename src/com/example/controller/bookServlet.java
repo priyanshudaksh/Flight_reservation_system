@@ -21,22 +21,21 @@ public class bookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("post");
+		HttpSession session=request.getSession();
 		String source = request.getParameter("source");
 		String destination = request.getParameter("destination");
 		String cateogory = request.getParameter("cateogory");
 		LocalDate doj = LocalDate.parse(request.getParameter("doj"));
-		System.out.println(source);
-		System.out.println(cateogory);
+		int seats = Integer.parseInt(request.getParameter("passangers"));
+		session.setAttribute("seats", seats);
 		List<Flight> flight = new ArrayList<Flight>();
 		FlightService fs = new FlightServiceImpl();
-		flight = fs.findFlight(source, destination, doj, cateogory);
-		System.out.println(flight);
+		flight = fs.findFlight(source, destination, doj, cateogory, seats);
 		if (flight != null) {
 			request.setAttribute("flight", flight);
-			HttpSession session=request.getSession();  
+			
 	        session.setAttribute("flight",flight);
-			request.getRequestDispatcher("allflight.jsp").forward(request, response);
+			request.getRequestDispatcher("flightresult.jsp").forward(request, response);
 		}
 	}
 }

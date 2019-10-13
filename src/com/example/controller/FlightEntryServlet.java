@@ -27,7 +27,8 @@ public class FlightEntryServlet extends HttpServlet {
 		LocalTime time = LocalTime.parse(request.getParameter("ftime"));
 		Double fare = Double.parseDouble(request.getParameter("ffare"));
 		String fclass = request.getParameter("fclass");
-		Flight flight = new Flight(-1, name, source, destination, doj, time, fare, fclass);
+		int seats = Integer.parseInt(request.getParameter("fseats"));
+		Flight flight = new Flight(-1, name, source, destination, doj, time, fare, fclass,seats);
 		FlightService fs = new FlightServiceImpl();
 		int status = fs.store(flight);
 		if (status>0) {

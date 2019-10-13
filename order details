@@ -1,0 +1,2 @@
+PNR		userid		Username	flightID	FlightName	SRC		Des		SEAT	DOJ		TOJ			Amount	Booking time
+create table order_details(pnr int primary key auto_increment,user_id int, username varchar(20), flight_id int, flight_name varchar(20), source varchar(20), destination varchar(20), seats int, DOJ date, TOJ time, Amount double, foreign key(user_id) references user_details(id), foreign key(flight_id) references flight_details(flight_id));	

@@ -19,7 +19,6 @@ import com.example.service.UserServiceImpl;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Logged");
 		User user = null;
 		UserService us = new UserServiceImpl();
 		String email = request.getParameter("email");
@@ -29,6 +28,8 @@ public class LoginServlet extends HttpServlet {
 		request.setAttribute("user", user);
 		HttpSession session=request.getSession();  
         session.setAttribute("name",user.getName());
+        session.setAttribute("id", user.getId());
+        //session.setAttribute("user", user);
 		request.getRequestDispatcher("logged.jsp").forward(request, response);
 		} else {
 			request.setAttribute("user", "Wrong Credentials");

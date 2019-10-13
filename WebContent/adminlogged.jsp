@@ -25,6 +25,7 @@
 <font face = "Comic sans MS" size = 5>Select date</font><input type="date" name="fdate"><br>
 <font face = "Comic sans MS" size = 5>Enter Flight Time</font><input type="time" name="ftime"><br>
 <font face = "Comic sans MS" size = 5>Enter Fare</font><input type="number" name="ffare"><br>
+<font face = "Comic sans MS" size = 5>Enter Seats</font><input type="number" name="fseats"><br>
 <font face = "Comic sans MS" size = 5>Enter Flight class</font>
 	<input type = "radio" name = "fclass" value = "Economy"> Economy
 	<input type = "radio" name = "fclass" value = "Business"> Business<br>

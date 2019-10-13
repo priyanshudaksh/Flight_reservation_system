@@ -28,9 +28,6 @@ public class ListallFlightsServlet extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		FlightService fs = new FlightServiceImpl();
 		List<Flight> flight = fs.listall();
-		/*
-		 * for (Flight fl:flight) { System.out.println(fl.getFname()); }
-		 */
 		if(flight != null) {
 			request.setAttribute("flight", flight);
 			request.getRequestDispatcher("allflight.jsp").forward(request, response);
